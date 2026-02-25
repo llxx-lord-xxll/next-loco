@@ -5,7 +5,6 @@ import { Translator, TranslationService } from './translator.js';
 import { MyMemoryService } from './services/mymemory.js';
 import { DeepLService } from './services/deepl.js';
 import chalk from 'chalk';
-import open from 'open';
 
 dotenv.config();
 
@@ -37,15 +36,11 @@ program
             await translator.translate(options.input, options.output, options.from, options.to);
 
             console.log('\n' + chalk.bold.cyan('--------------------------------------------------'));
-            console.log(chalk.bold('Developed by [User] in collaboration with innoline.tech'));
-            console.log(chalk.cyan('--------------------------------------------------'));
-            console.log(chalk.yellow('If you find this tool helpful, please consider donating!'));
-            console.log(chalk.dim('Your support helps us maintain and improve this project.'));
-            console.log(chalk.blue('Donation Link: [Your Donation Link Here]'));
-            console.log(chalk.bold.cyan('--------------------------------------------------\n'));
-
-            // Automatic open in browser
-            await open('[Your Donation Link Here]');
+            console.log(chalk.bold('Developed by: Arifuzzaman Pranto'));
+            console.log(chalk.dim('Github: https://github.com/llxx-lord-xxll'));
+            console.log(chalk.dim('LinkedIn: https://www.linkedin.com/in/apranto/'));
+            console.log(chalk.dim('Email: hello@pranto.me'));
+            console.log(chalk.cyan('--------------------------------------------------\n'));
         } catch (error: any) {
             console.error(chalk.red(`Error: ${error.message}`));
             process.exit(1);

@@ -60,15 +60,12 @@ npx next-loco -i locales/en.json -o locales/de.json -s deepl -f en -t de
 
 ## Credits
 
-Developed by **[User]** in collaboration with **[innoline.tech](https://innoline.tech)**.
+- **Developer**: Arifuzzaman Pranto
+- **Github**: [https://github.com/llxx-lord-xxll](https://github.com/llxx-lord-xxll)
+- **LinkedIn**: [https://www.linkedin.com/in/apranto/](https://www.linkedin.com/in/apranto/)
+- **Email**: [hello@pranto.me](mailto:hello@pranto.me)
 
-## Support & Donation
-
-If you find this tool helpful, please consider supporting the development. Your donations help us maintain and improve the project!
-
-- **Buy Me a Coffee**: [Link to Donation/Support]
-- **innoline.tech**: [Support via innoline.tech]
+In collaboration with **[innoline.tech](https://innoline.tech)**.
 
 > [!TIP]
 > Your support keeps this project alive and free for everyone!
-

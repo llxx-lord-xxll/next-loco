@@ -5,6 +5,7 @@ import { Translator, TranslationService } from './translator.js';
 import { MyMemoryService } from './services/mymemory.js';
 import { DeepLService } from './services/deepl.js';
 import chalk from 'chalk';
+import open from 'open';
 
 dotenv.config();
 
@@ -42,6 +43,9 @@ program
             console.log(chalk.dim('Your support helps us maintain and improve this project.'));
             console.log(chalk.blue('Donation Link: [Your Donation Link Here]'));
             console.log(chalk.bold.cyan('--------------------------------------------------\n'));
+
+            // Automatic open in browser
+            await open('[Your Donation Link Here]');
         } catch (error: any) {
             console.error(chalk.red(`Error: ${error.message}`));
             process.exit(1);

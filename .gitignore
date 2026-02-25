@@ -27,4 +27,4 @@ Thumbs.db
 *.swo
 
 # Project specific
-locales/*/
+locales/*

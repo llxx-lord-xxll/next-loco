@@ -69,3 +69,32 @@ export function writeLocaleFile(filePath: string, data: Record<string, string>):
   const nested = unflattenObject(data);
   fs.writeFileSync(absolutePath, JSON.stringify(nested, null, 2), 'utf-8');
 }
+
+/**
+ * Checks if a path is a directory.
+ */
+export function isDirectory(filePath: string): boolean {
+  const absolutePath = path.isAbsolute(filePath) ? filePath : path.resolve(process.cwd(), filePath);
+  return fs.existsSync(absolutePath) && fs.statSync(absolutePath).isDirectory();
+}
+
+/**
+ * Gets all JSON files in a directory and its subdirectories.
+ */
+export function getJsonFilesRecursively(dir: string, baseDir = dir): string[] {
+  const absoluteDir = path.isAbsolute(dir) ? dir : path.resolve(process.cwd(), dir);
+  const files = fs.readdirSync(absoluteDir);
+  let jsonFiles: string[] = [];
+
+  for (const file of files) {
+    const fullPath = path.join(absoluteDir, file);
+    if (fs.statSync(fullPath).isDirectory()) {
+      jsonFiles = jsonFiles.concat(getJsonFilesRecursively(fullPath, baseDir));
+    } else if (file.endsWith('.json')) {
+      // Return relative path from baseDir
+      jsonFiles.push(path.relative(baseDir, fullPath));
+    }
+  }
+
+  return jsonFiles;
+}

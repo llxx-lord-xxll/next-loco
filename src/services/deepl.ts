@@ -6,11 +6,18 @@ export class DeepLService implements TranslationService {
     private apiKey: string;
     private apiUrl: string;
 
-    constructor() {
-        this.apiKey = process.env.DEEPL_API_KEY || '';
-        if (!this.apiKey) {
-            throw new Error('DEEPL_API_KEY environment variable is required for DeepL service.');
-        }
+    constructor(apiKey?: string) {
+        this.apiKey = apiKey || process.env.DEEPL_API_KEY || '';
+        this.apiUrl = ''; // Initialized to satisfy TS2564
+        this.updateApiUrl();
+    }
+
+    setApiKey(apiKey: string) {
+        this.apiKey = apiKey;
+        this.updateApiUrl();
+    }
+
+    private updateApiUrl() {
         // Check if it's a free or pro key
         this.apiUrl = this.apiKey.endsWith(':fx')
             ? 'https://api-free.deepl.com/v2/translate'
@@ -22,13 +29,13 @@ export class DeepLService implements TranslationService {
             const response = await axios.post(
                 this.apiUrl,
                 new URLSearchParams({
-                    auth_key: this.apiKey,
                     source_lang: from.toUpperCase(),
                     target_lang: to.toUpperCase(),
                     ...texts.reduce((acc, text, i) => ({ ...acc, [`text[${i}]`]: text }), {})
                 }).toString(),
                 {
                     headers: {
+                        'Authorization': `DeepL-Auth-Key ${this.apiKey}`,
                         'Content-Type': 'application/x-www-form-urlencoded',
                     },
                 }

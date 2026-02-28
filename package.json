@@ -1,6 +1,6 @@
 {
   "name": "next-loco",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "type": "module",
   "main": "dist/index.js",
@@ -27,5 +27,9 @@
     "ora": "^9.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^8.3.0",
+    "inquirer": "^13.3.0"
   }
 }

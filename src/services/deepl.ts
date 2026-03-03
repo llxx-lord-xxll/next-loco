@@ -28,15 +28,15 @@ export class DeepLService implements TranslationService {
         try {
             const response = await axios.post(
                 this.apiUrl,
-                new URLSearchParams({
+                {
                     source_lang: from.toUpperCase(),
                     target_lang: to.toUpperCase(),
-                    ...texts.reduce((acc, text, i) => ({ ...acc, [`text[${i}]`]: text }), {})
-                }).toString(),
+                    text: texts
+                },
                 {
                     headers: {
                         'Authorization': `DeepL-Auth-Key ${this.apiKey}`,
-                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Content-Type': 'application/json',
                     },
                 }
             );

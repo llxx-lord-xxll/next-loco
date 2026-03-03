@@ -16,7 +16,7 @@ const program = new Command();
 program
     .name('next-loco')
     .description('Translate Next.js locale JSON files using MyMemory or DeepL')
-    .version('1.1.0')
+    .version('1.2.0')
     .option('-i, --input <path>', 'Source locale file or directory (e.g., locales/en or locales/en.json)')
     .option('-o, --output <path>', 'Destination locale file or directory (e.g., locales/es or locales/es.json)')
     .option('-s, --service <service>', 'Translation service: mymemory or deepl')
@@ -26,7 +26,7 @@ program
         try {
             console.log('\n' + chalk.bold.cyan('┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓'));
             console.log(chalk.bold.cyan('┃                                                  ┃'));
-            console.log(chalk.bold.cyan('┃          🚀  Welcome to Next-Loco v1.1.0         ┃'));
+            console.log(chalk.bold.cyan('┃          🚀  Welcome to Next-Loco v1.2.0         ┃'));
             console.log(chalk.bold.cyan('┃       The Ultimate Locale Translation Tool       ┃'));
             console.log(chalk.bold.cyan('┃                                                  ┃'));
             console.log(chalk.bold.cyan('┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n'));

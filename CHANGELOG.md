@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2026-03-03
+
+### Fixed
+- **Nested JSON Handling**: Fixed a critical issue where arrays of objects and arrays of strings were not being preserved during translation. The tool now correctly recurses into arrays and reconstructs them in the output files.
+
 ## [1.1.0] - 2026-02-28
 
 ### Added
@@ -20,7 +25,6 @@ All notable changes to this project will be documented in this file.
 - **Improved UX**: Enhanced CLI feedback with `ora` spinners and `chalk` colors.
 
 ### Fixed
-- **Nested JSON Handling**: Fixed a critical issue where arrays of objects and arrays of strings were not being preserved during translation. The tool now correctly recurses into arrays and reconstructs them in the output files.
 - Fixed an issue where the tool would fail if no flags were provided.
 - Resolved `axios is not defined` error during DeepL key validation.
 - Fixed TypeScript compilation errors related to property initialization in `DeepLService`.

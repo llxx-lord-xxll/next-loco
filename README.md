@@ -1,4 +1,4 @@
-# Next-Loco Translator v1.1.0
+# Next-Loco Translator v1.2.0
 
 A powerful, npx-ready CLI tool to translate Next.js locale JSON files using MyMemory or DeepL. It handles nested JSON structures, supports batch folder translation, uses efficient batching for large files, and features an interactive wizard for a seamless experience.
 

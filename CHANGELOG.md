@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.2.0] - 2026-03-03
+## [1.2.1] - 2026-03-03
 
 ### Fixed
 - **Nested JSON Handling**: Fixed a critical issue where arrays of objects and arrays of strings were not being preserved during translation. The tool now correctly recurses into arrays and reconstructs them in the output files.

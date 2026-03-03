@@ -10,7 +10,7 @@ export function flattenObject(obj: any, prefix = ''): Record<string, string> {
   for (const key in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, key)) {
       const propName = prefix ? `${prefix}.${key}` : key;
-      if (typeof obj[key] === 'object' && obj[key] !== null && !Array.isArray(obj[key])) {
+      if (typeof obj[key] === 'object' && obj[key] !== null) {
         Object.assign(flattened, flattenObject(obj[key], propName));
       } else {
         flattened[propName] = String(obj[key]);
@@ -32,10 +32,16 @@ export function unflattenObject(data: Record<string, string>): any {
     let current = result;
     for (let i = 0; i < parts.length; i++) {
       const part = parts[i] as string;
+      const isArrayIndex = !isNaN(Number(parts[i + 1]));
+
       if (i === parts.length - 1) {
         current[part] = data[key];
       } else {
-        current[part] = current[part] || {};
+        if (isArrayIndex) {
+          current[part] = current[part] || [];
+        } else {
+          current[part] = current[part] || {};
+        }
         current = current[part];
       }
     }
